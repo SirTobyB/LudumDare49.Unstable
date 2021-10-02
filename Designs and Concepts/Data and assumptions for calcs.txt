@@ -1,5 +1,4 @@
 Annahmen:
-
 - Einheit C02: Immer in Tonnen angeben!
 - Bevölkerung: 10 Mio. Menschen
 - 5t C02 Emission pro Kopf pro Runde (Halbjahr)
@@ -11,3 +10,20 @@ Beispielverteilung Emission pro Runde zu Beginn:
 - Industry: 1,5 Mio. t CO2
 - Energy Sector: 1,5 Mio. t CO2
 - Agriculture: 1,5 Mio. t CO2
+
+Startwerte Statisfaction:
+- Society: 50 %
+- Industry: 50 %
+- Energy Sector: 50 %
+- Agriculture: 50 %
+
+Startwerte Sonstiges
+- Pollution: 50 %
+- Geld: 10 Mio.
+- Schulden: 100 Mio.
+- Steuern Start: 200.000
+- Zinsen Start: 100.000
+- Zinsen (Prozent): 1 %
+
+Steuernberechnung:
+- Je 1 % Zufriedenheit = 1000 Steuereinnahmen
