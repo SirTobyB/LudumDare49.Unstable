@@ -1,0 +1,40 @@
+{
+    "Decisions": [
+        {
+            "Number": 1,
+            "Segment": "Society",
+            "DescriptionDE": "Du verbietest im gesamten Land und der gesamten Wirtschaft die Verwendung von Wegwerf-Plastikprodukten und forschst nach umweltfreundlichen und nachhaltigen Alternativen.",
+            "DescriptionEN": "You are banning the use of disposable plastic products in the entire country and the entire economy and are researching environmentally friendly and sustainable alternatives.",
+            "ResultDescriptionDE": "Die Gesellschaft ist erfreut und die Gewässer und die gesamter Umwelt erholen sich langsam vom Plastikmüll. Die Industrie wird stark zurückgeworfen und muss für viel Geld auf die Alternativen umschwenken.",
+            "ResultDescriptionEN": "Society is delighted and the waters and the entire environment are slowly recovering from plastic waste. The industry is being thrown back heavily and has to switch to alternatives for a lot of money.",
+            "Costs": 1500000,
+            "Pollution": -7,
+            "SocietySatisfaction": 5,
+            "SocietyCO2Emission": -110000,
+            "IndustrySatisfaction": -5,
+            "IndustryCO2Emission": -100000,
+            "EnergySectorSatisfaction": -1,
+            "EnergySectorCO2Emission": 10000,
+            "AgricultureSatisfaction": 3,
+            "AgricultureCO2Emission": 0
+        },
+        {
+            "Number": 2,
+            "Segment": "EnergySector",
+            "DescriptionDE": "Kernkraftwerke fördern",
+            "DescriptionEN": "Promote nuclear power plants",
+            "ResultDescriptionDE": "Die Gesellschaft ist nicht erfreut, die Endlagerung ist nicht geklärt, die Industrie freut sich über die sinkenden Energiepreise.",
+            "ResultDescriptionEN": "Society is not happy, the final disposal has not been clarified, the industry is happy about the falling energy prices.",
+            "Costs": 3000000,
+            "Pollution": 10,
+            "SocietySatisfaction": -10,
+            "SocietyCO2Emission": 0,
+            "IndustrySatisfaction": 5,
+            "IndustryCO2Emission": 0,
+            "EnergySectorSatisfaction": -1,
+            "EnergySectorCO2Emission": -400000,
+            "AgricultureSatisfaction": 0,
+            "AgricultureCO2Emission": 0
+        }
+    ]
+}

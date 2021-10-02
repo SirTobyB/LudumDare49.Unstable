@@ -1,0 +1,13 @@
+Annahmen:
+
+- Einheit C02: Immer in Tonnen angeben!
+- Bevölkerung: 10 Mio. Menschen
+- 5t C02 Emission pro Kopf pro Runde (Halbjahr)
+- Gesamt pro Runde (Startwert): 5.000.000t CO2 Emission
+- Ziel: Reduzierung um 40 % also 2.000.000t weniger = 3.000.000t bis Ende 2030 (in 10 Jahren)
+
+Beispielverteilung Emission pro Runde zu Beginn:
+- Society: 0,5 Mio. t CO2
+- Industry: 1,5 Mio. t CO2
+- Energy Sector: 1,5 Mio. t CO2
+- Agriculture: 1,5 Mio. t CO2
