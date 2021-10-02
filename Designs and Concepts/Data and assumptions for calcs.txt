@@ -21,9 +21,9 @@ Startwerte Sonstiges
 - Pollution: 50 %
 - Geld: 10 Mio.
 - Schulden: 100 Mio.
-- Steuern Start: 200.000
-- Zinsen Start: 100.000
+- Steuern Start: 2.000.000
+- Zinsen Start: 1.000.000
 - Zinsen (Prozent): 1 %
 
 Steuernberechnung:
-- Je 1 % Zufriedenheit = 1000 Steuereinnahmen
+- Je 1 % Zufriedenheit = 10000 Steuereinnahmen
