@@ -35,6 +35,42 @@
             "EnergySectorCO2Emission": -400000,
             "AgricultureSatisfaction": 0,
             "AgricultureCO2Emission": 0
+        },
+        {
+            "Number": 3,
+            "Segment": "Industry",
+            "DescriptionDE": "Kernkraftwerke fördern",
+            "DescriptionEN": "Promote nuclear power plants",
+            "ResultDescriptionDE": "Die Gesellschaft ist nicht erfreut, die Endlagerung ist nicht geklärt, die Industrie freut sich über die sinkenden Energiepreise.",
+            "ResultDescriptionEN": "Society is not happy, the final disposal has not been clarified, the industry is happy about the falling energy prices.",
+            "Costs": 3000000,
+            "Pollution": 10,
+            "SocietySatisfaction": -10,
+            "SocietyCO2Emission": 0,
+            "IndustrySatisfaction": 5,
+            "IndustryCO2Emission": 0,
+            "EnergySectorSatisfaction": -1,
+            "EnergySectorCO2Emission": -400000,
+            "AgricultureSatisfaction": 0,
+            "AgricultureCO2Emission": 0
+        },
+        {
+            "Number": 4,
+            "Segment": "Agriculture",
+            "DescriptionDE": "Kernkraftwerke fördern",
+            "DescriptionEN": "Promote nuclear power plants",
+            "ResultDescriptionDE": "Die Gesellschaft ist nicht erfreut, die Endlagerung ist nicht geklärt, die Industrie freut sich über die sinkenden Energiepreise.",
+            "ResultDescriptionEN": "Society is not happy, the final disposal has not been clarified, the industry is happy about the falling energy prices.",
+            "Costs": 3000000,
+            "Pollution": 10,
+            "SocietySatisfaction": -10,
+            "SocietyCO2Emission": 0,
+            "IndustrySatisfaction": 5,
+            "IndustryCO2Emission": 0,
+            "EnergySectorSatisfaction": -1,
+            "EnergySectorCO2Emission": -400000,
+            "AgricultureSatisfaction": 0,
+            "AgricultureCO2Emission": 0
         }
     ]
 }

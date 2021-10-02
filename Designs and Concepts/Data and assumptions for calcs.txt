@@ -27,3 +27,28 @@ Startwerte Sonstiges
 
 Steuernberechnung:
 - Je 1 % Zufriedenheit = 10000 Steuereinnahmen
+
+Umweltverschmutzung Logik -> Statisfaction:
+- Weniger als 50 %:
+  - Society: 3 %
+  - Agriculture: 2 %
+- Mehr als 60 %:
+  - Society: -2 %
+  - Industry: 1 %
+  - Energy Sector: 1 %
+  - Agriculture: -2 %
+- Mehr als 70 %:
+  - Society: -4 %
+  - Industry: 2 %
+  - Energy Sector: 2 %
+  - Agriculture: -4 %
+- Mehr als 80 %:
+  - Society: -8 %
+  - Industry: 5 %
+  - Energy Sector: 3 %
+  - Agriculture: -8 %
+- Mehr als 90 %:
+  - Society: -15 %
+  - Industry: 10 %
+  - Energy Sector: 5 %
+  - Agriculture: -15 %
