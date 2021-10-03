@@ -54,18 +54,8 @@ Umweltverschmutzung Logik -> Statisfaction:
   - Agriculture: -15 %
 
 Ideen für Entscheidungen:
-- Lokale und saisonale Produkte (weniger Logistik)
 - Forschung und Entwicklung alternativer Energien
-- Subventionierung von erneuerbaren Energien
-- Forschung für effizientere und energiesparendere industrielle Verfahren
-- Forschung und Unterstützung für genmanipulieres Saatgut für bessere Erträge bei schlechteren Bedingungen (weniger Wasserverbrauch usw.)
-- Baumpflanzprogramm finanzieren
-- Kreuzfahrten besteuern
-- Elektro/Gas/Wasserstoff Kreuzfahrtschiffe einführen und neue Dieselschiffe verbieten
 - Neue Dieselfrachtschiffe verbieten, nur noch Elektro/Gas/Wasserstoff Antriebe bei der Frachtschiffahrt
-- Wasserstoff antriebe fördern / subventionieren
-- Umweltsünden und harte Gefängsnisstrafen stellen
-- Geschwindkeitslimit auf Straßen überall herabsetzen, um CO² zu sparen
 - Selbstfahrende LKWs erforschen, die effizienter und sichere unterwegs sind und Staus vermeiden
 
 Intro Beispiel:
