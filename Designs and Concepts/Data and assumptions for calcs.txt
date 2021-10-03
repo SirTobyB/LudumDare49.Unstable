@@ -67,3 +67,10 @@ Ideen für Entscheidungen:
 - Umweltsünden und harte Gefängsnisstrafen stellen
 - Geschwindkeitslimit auf Straßen überall herabsetzen, um CO² zu sparen
 - Selbstfahrende LKWs erforschen, die effizienter und sichere unterwegs sind und Staus vermeiden
+
+Intro Beispiel:
+
+In an unstable world with an unstable environment at unstable times, you have to face the biggest challenge in the history of human mankind.
+As a consultant of the government in your country, you have make the right decisions to limit the climate change and save the future.
+The planet can be saved, the destruction can be stopped! Will you be the right person for this job?
+Or should we not change anything because we all know, that the climate change is not caused by humans and the earth is flat, right?
