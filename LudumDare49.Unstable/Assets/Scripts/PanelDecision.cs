@@ -30,12 +30,12 @@ public class PanelDecision : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         if (gameState.Game.Language == "en")
         {
             description.gameObject.GetComponent<Text>().text = CurrentDecision.DescriptionEN;
-            costs.gameObject.GetComponent<Text>().text = "Costs: " + CurrentDecision.Costs.ToString();
+            costs.gameObject.GetComponent<Text>().text = "Costs: " + CurrentDecision.Costs.ToStringMoney(gameState.Game.Currency, gameState.Game.Language);
         }
         else
         {
             description.gameObject.GetComponent<Text>().text = CurrentDecision.DescriptionDE;
-            costs.gameObject.GetComponent<Text>().text = "Kosten: " + CurrentDecision.Costs.ToString();
+            costs.gameObject.GetComponent<Text>().text = "Kosten: " + CurrentDecision.Costs.ToStringMoney(gameState.Game.Currency, gameState.Game.Language);
         }
     }
 
@@ -43,8 +43,6 @@ public class PanelDecision : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     {
         if (CurrentDecision != null)
         {
-            Debug.Log("clicked OnPointerClick");
-
             GameState gameState = _camera.GetComponent(typeof(GameState)) as GameState;
 
             gameState.MakeDecision(gameState.Game, CurrentDecision);

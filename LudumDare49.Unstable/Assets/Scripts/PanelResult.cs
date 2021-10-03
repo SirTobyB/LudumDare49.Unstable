@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PanelResult : MonoBehaviour, IPointerClickHandler
 {
@@ -22,6 +21,66 @@ public class PanelResult : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         GameState gameState = _camera.GetComponent(typeof(GameState)) as GameState;
+
+        bool won = gameState.IsGameWon(gameState.Game);
+
+        if (won)
+        {
+            gameObject.SetActive(false);
+
+            var headline = gameObject.transform.GetChild(0);
+            var description = gameObject.transform.GetChild(1);
+            var effects = gameObject.transform.GetChild(2);
+
+            // TODO: Show Screen: You've won! With calculated points
+            // TODO: Show credits
+
+            if (gameState.Game.Language == "en")
+            {
+                headline.gameObject.GetComponent<Text>().text = "Game won!";
+                description.gameObject.GetComponent<Text>().text = "You've archived the climate goal!";
+                effects.gameObject.GetComponent<Text>().text = "";
+            }
+            else
+            {
+                headline.gameObject.GetComponent<Text>().text = "Spiel gewonnen!";
+                description.gameObject.GetComponent<Text>().text = "Du hast das Klimaziel erreicht!";
+                effects.gameObject.GetComponent<Text>().text = "";
+            }
+
+            gameObject.SetActive(true);
+            return;
+        }
+
+        string cause = "";
+        bool lost = gameState.IsGameOver(gameState.Game, ref cause);
+
+        if (lost)
+        {
+            gameObject.SetActive(false);
+            
+            var headline = gameObject.transform.GetChild(0);
+            var description = gameObject.transform.GetChild(1);
+            var effects = gameObject.transform.GetChild(2);
+
+            // TODO: Show Screen: Game Over with stats and "try again" button
+
+            if (gameState.Game.Language == "en")
+            {
+                headline.gameObject.GetComponent<Text>().text = "Game over!";
+                description.gameObject.GetComponent<Text>().text = cause;
+                effects.gameObject.GetComponent<Text>().text = "";
+            }
+            else
+            {
+                headline.gameObject.GetComponent<Text>().text = "Spiel verloren!";
+                description.gameObject.GetComponent<Text>().text = cause;
+                effects.gameObject.GetComponent<Text>().text = "";
+            }
+
+            gameObject.SetActive(true);
+            return;
+        }
 
         gameState.StartRound(gameState.Game, false);
 

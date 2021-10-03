@@ -16,7 +16,6 @@ namespace Assets.Scripts
         public List<int> ListOfSeenDecisions = new List<int>();
 
         public short CurrentYear;
-        public short CurrentRound;
         public long Money;
         public long Debt;
         public long InterestPerRound;

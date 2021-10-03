@@ -560,7 +560,7 @@
         },
         {
             "Number": 32,
-            "Segment": "EnergySector.",
+            "Segment": "EnergySector",
             "DescriptionDE": "Die Regierung finanziert die Anpflanzung von neuen Bäumen.",
             "DescriptionEN": "The government pays for planting new trees.",
             "ResultDescriptionDE": "Die Gesellschaft freut sich über die bessere Luft, doch der Energiesektor muss nach einer zehnjärigen Planung den Bau eines neuen Kraftwerkes aufgeben.",
@@ -578,7 +578,7 @@
         },
         {
             "Number": 33,
-            "Segment": "Industry.",
+            "Segment": "Industry",
             "DescriptionDE": "Die Regierung erhebt eine Sondersteuer für Kreuzfahrten.",
             "DescriptionEN": "The government raises a special tax for cruises.",
             "ResultDescriptionDE": "Die Kreuzfahrtindustrie erleidet Schiffbruch.",
@@ -596,7 +596,7 @@
         },
         {
             "Number": 34,
-            "Segment": "Industry.",
+            "Segment": "Industry",
             "DescriptionDE": "Umweltsünden werden härter bestraft.",
             "DescriptionEN": "Crimes to environment will be panished more hard.",
             "ResultDescriptionDE": "Die Industrie muss deutlich mehr Geld für Anwälte ausgeben.",
