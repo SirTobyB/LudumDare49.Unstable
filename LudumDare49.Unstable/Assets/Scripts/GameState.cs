@@ -12,6 +12,7 @@ public class GameState : MonoBehaviour
     public Image StartPanel;
     public Image Result;
     public Button btnExit, btnEN, btnDE;
+    public TextAsset json;
 
     private System.Random _rnd = new System.Random();
     private DecisionCollection _decisionCollection;
@@ -96,8 +97,9 @@ public class GameState : MonoBehaviour
         //File.WriteAllText(@"D:\Projekte\LudumDare49.Unstable\Designs and Concepts\decisions.json", json);
 
         // var json = File.ReadAllText(@"D:\Projekte\LudumDare49.Unstable\Designs and Concepts\decisions.json");
-        var json = File.ReadAllText(@"C:\Temp\decisions.json");
-        _decisionCollection = JsonUtility.FromJson<DecisionCollection>(json);
+        //TextAsset json = Resources.Load("decisions") as TextAsset;
+        //var json = File.ReadAllText(@"C:\Temp\decisions.json");
+        _decisionCollection = JsonUtility.FromJson<DecisionCollection>(json.text);
 
         //Console.WriteLine(myObject.Decisions?[0].ResultDescriptionDE);
 
@@ -108,9 +110,9 @@ public class GameState : MonoBehaviour
 
         Game = new Game()
         {
-            Language = "de",
+            Language = "en",
             PlayerName = "Spoilerqueen",  // TODO: From player input
-            CountryName = "Deutschland",  // TODO: From player input
+            CountryName = "Germany",  // TODO: From player input
             Currency = "€",  // TODO: From player input
             PreviousCO2EmissionOverall = StartSocietyCO2Emission + StartIndustryCO2Emission + StartEnergySectorCO2Emission + StartAgricultureCO2Emission,
             ListOfMadeDecisions = new List<int>(),
@@ -173,6 +175,14 @@ public class GameState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
+        if (firstStart)
+        {
+            GameObject.FindWithTag("MainCanvas").GetComponent<AudioSource>().Play();
+            firstStart = false;
+        }
+        */
+
         // TODO: update all values in text fields
         if (Game.Language == "en")
         {
