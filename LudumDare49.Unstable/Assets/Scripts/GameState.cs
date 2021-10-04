@@ -23,6 +23,11 @@ public class GameState : MonoBehaviour
     private Text _txtInterest;
     private Text _txtTaxLabel;
     private Text _txtTax;
+    private Text _txtGoalLabel;
+    private Text _txtGoalEmission;
+    private Text _txtCurrentEmission;
+    private Text _txtMissingSaving;
+    private Text _txtPollution;
     private Text _txtSatisfactionLabel;
     private Text _txtSocietyLabel;
     private Text _txtSocietySatisfaction;
@@ -40,6 +45,8 @@ public class GameState : MonoBehaviour
     private Slider _barIndustry;
     private Slider _barEnergySector;
     private Slider _barAgriculture;
+
+    public long _emissionGoal = 3000000;
 
     // Start is called before the first frame update
     void Start()
@@ -90,7 +97,8 @@ public class GameState : MonoBehaviour
         //string json = JsonUtility.ToJson(collection, true);
         //File.WriteAllText(@"D:\Projekte\LudumDare49.Unstable\Designs and Concepts\decisions.json", json);
 
-        var json = File.ReadAllText(@"D:\Projekte\LudumDare49.Unstable\Designs and Concepts\decisions.json");
+        // var json = File.ReadAllText(@"D:\Projekte\LudumDare49.Unstable\Designs and Concepts\decisions.json");
+        var json = File.ReadAllText(@"C:\Temp\decisions.json");
         _decisionCollection = JsonUtility.FromJson<DecisionCollection>(json);
 
         //Console.WriteLine(myObject.Decisions?[0].ResultDescriptionDE);
@@ -102,7 +110,7 @@ public class GameState : MonoBehaviour
 
         Game = new Game()
         {
-            Language = "de",
+            Language = "en",
             PlayerName = "Spoilerqueen",  // TODO: From player input
             CountryName = "Deutschland",  // TODO: From player input
             Currency = "€",  // TODO: From player input
@@ -140,6 +148,11 @@ public class GameState : MonoBehaviour
         _txtInterest = GameObject.FindWithTag("MainCanvas").transform.Find("txtInterest").gameObject.GetComponent<Text>();
         _txtTaxLabel = GameObject.FindWithTag("MainCanvas").transform.Find("txtTaxLabel").gameObject.GetComponent<Text>();
         _txtTax = GameObject.FindWithTag("MainCanvas").transform.Find("txtTax").gameObject.GetComponent<Text>();
+        _txtGoalLabel = GameObject.FindWithTag("MainCanvas").transform.Find("txtGoalLabel").gameObject.GetComponent<Text>();
+        _txtGoalEmission = GameObject.FindWithTag("MainCanvas").transform.Find("txtGoalEmission").gameObject.GetComponent<Text>();
+        _txtCurrentEmission = GameObject.FindWithTag("MainCanvas").transform.Find("txtCurrentEmission").gameObject.GetComponent<Text>();
+        _txtMissingSaving = GameObject.FindWithTag("MainCanvas").transform.Find("txtMissingSaving").gameObject.GetComponent<Text>();
+        _txtPollution = GameObject.FindWithTag("MainCanvas").transform.Find("txtPollution").gameObject.GetComponent<Text>();
         _txtSatisfactionLabel = GameObject.FindWithTag("MainCanvas").transform.Find("txtSatisfactionLabel").gameObject.GetComponent<Text>();
         _txtSocietySatisfaction = GameObject.FindWithTag("MainCanvas").transform.Find("txtSocietySatisfaction").gameObject.GetComponent<Text>();
         _txtSocietyLabel = GameObject.FindWithTag("MainCanvas").transform.Find("txtSocietyLabel").gameObject.GetComponent<Text>();
@@ -178,6 +191,11 @@ public class GameState : MonoBehaviour
             _txtIndustryLabel.text = "Industry:";
             _txtEnergySectorLabel.text = "Energy sector:";
             _txtAgricultureLabel.text = "Agriculture:";
+            _txtGoalLabel.text = "Goal";
+            _txtGoalEmission.text = $"{_emissionGoal.ToStringCO2(true)} emission till 2030 (40 % less)";
+            _txtCurrentEmission.text = $"Current emission: {GetTotalCO2Emission(Game).ToStringCO2(true)}";
+            _txtMissingSaving.text = $"Missing saving: {(GetTotalCO2Emission(Game) - _emissionGoal).ToStringCO2(true)}";
+            _txtPollution.text = $"Environment pollution: {Game.EnvironmentPollutionInPercent} %";
         }
         else
         {
@@ -192,6 +210,11 @@ public class GameState : MonoBehaviour
             _txtIndustryLabel.text = "Industrie:";
             _txtEnergySectorLabel.text = "Energiesektor:";
             _txtAgricultureLabel.text = "Landwirtschaft:";
+            _txtGoalLabel.text = "Ziel";
+            _txtGoalEmission.text = $"{_emissionGoal.ToStringCO2(true)} emission bis 2030 (40 % weniger)";
+            _txtCurrentEmission.text = $"Derzeitige Emission: {GetTotalCO2Emission(Game).ToStringCO2(true)}";
+            _txtMissingSaving.text = $"Fehlende Ersparnis: {(GetTotalCO2Emission(Game) - _emissionGoal).ToStringCO2(true)}";
+            _txtPollution.text = $"Umweltverschmutzung: {Game.EnvironmentPollutionInPercent} %";
         }
 
         _txtMoney.text = Game.Money.ToStringMoney(Game.Currency, Game.Language);
@@ -377,6 +400,11 @@ public class GameState : MonoBehaviour
             else if (decision.AgricultureSatisfaction < 0)
                 costsText += Environment.NewLine + "Agriculture Satisfaction: " + decision.AgricultureSatisfaction.ToString() + " %";
 
+            if (decision.SocietyCO2Emission > 0)
+                costsText += Environment.NewLine + "Pollution: +" + decision.Pollution.ToString();
+            else if (decision.Pollution < 0)
+                costsText += Environment.NewLine + "Pollution: " + decision.Pollution.ToString();
+
             // TODO: show all values
 
             effects.gameObject.GetComponent<Text>().text = costsText;
@@ -448,13 +476,13 @@ public class GameState : MonoBehaviour
     public bool IsGameWon(Game currentGame)
     {
         // winning, if it's the year 2030 and the CO2 emission overall is less or equal than 3 Mio. t
-        return currentGame.CurrentYear == 2030 && GetTotalCO2Emission(currentGame) <= 3000000;
+        return currentGame.CurrentYear == 2030 && GetTotalCO2Emission(currentGame) <= _emissionGoal;
     }
 
     public bool IsGameOver(Game currentGame, ref string cause)
     {
         // game over, if year is 2030 and the CO2 emission is bigger than 3.000.000
-        if (currentGame.CurrentYear == 2030 && GetTotalCO2Emission(currentGame) > 3000000)
+        if (currentGame.CurrentYear == 2030 && GetTotalCO2Emission(currentGame) > _emissionGoal)
         {
             if (currentGame.Language == "en")
                 cause = "The climate target was not achieved, global warming has not been adequately limited, chaos is breaking out.";
