@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -39,16 +40,27 @@ public class PanelResult : MonoBehaviour, IPointerClickHandler
             if (gameState.Game.Language == "en")
             {
                 headline.gameObject.GetComponent<Text>().text = "Game won!";
-                description.gameObject.GetComponent<Text>().text = "You've archived the climate goal!";
+                description.gameObject.GetComponent<Text>().text = "Hurrey! You did it! People are happily embracing themeselves, bees are buzzing, and the sun is sparkling in the clear water. (Of course, with only pleasant temperature which is harmless for climate). You brought stability back to environment without sacrificing the satisfaction of the four players. Congratulations!";
+                effects.gameObject.GetComponent<Text>().text = "Thanks for playing!" + Environment.NewLine + Environment.NewLine + 
+                                                               "programming and design" + Environment.NewLine + "Tobi (SirTobyB)" + Environment.NewLine + Environment.NewLine +
+                                                               "idea and writing" + Environment.NewLine + "Kathi";
+                pollution.gameObject.GetComponent<Text>().text = "Asset Credits" + Environment.NewLine + Environment.NewLine +
+                                                                 "Intro Music: Beyond The Star - Steve Oxen (https://www.FesliyanStudios.com Background Music)" + Environment.NewLine +
+                                                                 "Background Music: Moonshine - Ketsa" + Environment.NewLine +
+                                                                 "Background Image: mihacreative (AdobeStock #403313708)";
             }
             else
             {
                 headline.gameObject.GetComponent<Text>().text = "Spiel gewonnen!";
-                description.gameObject.GetComponent<Text>().text = "Du hast das Klimaziel erreicht!";
+                description.gameObject.GetComponent<Text>().text = "Hurra! Du hast es geschafft! Die Menschen liegen sich freudestrahlend in den Armen, die Bienchen summen und die Sonne spiegelt sich im glitzernd klaren Wasser. (Natürlich nur mit angenehmen, klimaunschädlichen Temperaturen). Dir ist es gelungen die Stabilität der Umwelt wieder herzustellen, ohne die Zufriedenheit der vier Akteure zu opfern. Glückwunsch!";
+                effects.gameObject.GetComponent<Text>().text = "Vielen Dank fürs Spielen!" + Environment.NewLine + Environment.NewLine +
+                                                               "Programmierung und Design" + Environment.NewLine + "Tobi (SirTobyB)" + Environment.NewLine + Environment.NewLine +
+                                                               "Idee und Texte" + Environment.NewLine + "Kathi";
+                pollution.gameObject.GetComponent<Text>().text = "Asset Credits" + Environment.NewLine + Environment.NewLine +
+                                                                 "Intro Musik: Beyond The Star - Steve Oxen (https://www.FesliyanStudios.com Background Music)" + Environment.NewLine +
+                                                                 "Hintergrund Musik: Moonshine - Ketsa" + Environment.NewLine +
+                                                                 "Hintergrund Bild: mihacreative (AdobeStock #403313708)";
             }
-
-            effects.gameObject.GetComponent<Text>().text = "";
-            pollution.gameObject.GetComponent<Text>().text = "";
 
             gameObject.SetActive(true);
             return;
@@ -72,15 +84,26 @@ public class PanelResult : MonoBehaviour, IPointerClickHandler
             {
                 headline.gameObject.GetComponent<Text>().text = "Game over!";
                 description.gameObject.GetComponent<Text>().text = cause;
+                effects.gameObject.GetComponent<Text>().text = "Thanks for playing!" + Environment.NewLine + Environment.NewLine +
+                                                               "programming and design" + Environment.NewLine + "Tobi (SirTobyB)" + Environment.NewLine + Environment.NewLine +
+                                                               "idea and writing" + Environment.NewLine + "Kathi";
+                pollution.gameObject.GetComponent<Text>().text = "Asset Credits" + Environment.NewLine + Environment.NewLine +
+                                                                 "Intro Music: Beyond The Star - Steve Oxen (https://www.FesliyanStudios.com Background Music)" + Environment.NewLine +
+                                                                 "Background Music: Moonshine - Ketsa" + Environment.NewLine +
+                                                                 "Background Image: mihacreative (AdobeStock #403313708)";
             }
             else
             {
                 headline.gameObject.GetComponent<Text>().text = "Spiel verloren!";
                 description.gameObject.GetComponent<Text>().text = cause;
+                effects.gameObject.GetComponent<Text>().text = "Vielen Dank fürs Spielen!" + Environment.NewLine + Environment.NewLine +
+                                                               "Programmierung und Design" + Environment.NewLine + "Tobi (SirTobyB)" + Environment.NewLine + Environment.NewLine +
+                                                               "Idee und Texte" + Environment.NewLine + "Kathi";
+                pollution.gameObject.GetComponent<Text>().text = "Asset Credits" + Environment.NewLine + Environment.NewLine +
+                                                                 "Intro Musik: Beyond The Star - Steve Oxen (https://www.FesliyanStudios.com Background Music)" + Environment.NewLine +
+                                                                 "Hintergrund Musik: Moonshine - Ketsa" + Environment.NewLine +
+                                                                 "Hintergrund Bild: mihacreative (AdobeStock #403313708)";
             }
-
-            effects.gameObject.GetComponent<Text>().text = "";
-            pollution.gameObject.GetComponent<Text>().text = "";
 
             gameObject.SetActive(true);
             return;

@@ -686,9 +686,9 @@ public class GameState : MonoBehaviour
         if (newMoney <= 0)
         {
             if (currentGame.Language == "en")
-                cause = "Not enough money for your interest";
+                cause = "Oh oh! Your are broke! Your climate decisions were maybe a bit too ambitious, what means that you can't make any decision anymore. Your country will be disappear in the dust of CO2 emission shortly.";
             else
-                cause = "Nicht genug Geld für deine Zinsen";
+                cause = "Oh oh! Du bist pleite! Deine Umweltmaßnahmen waren vielleicht etwas zu ambitioniert, was zur Folge hat, dass du keinerlei Maßnahmen mehr umsetzen kannst. Dein Land wird kurzfristig im Dunst von CO2-Emissionen verschwinden.";
 
             return true;
         }
@@ -697,9 +697,9 @@ public class GameState : MonoBehaviour
         if (currentGame.SocietySatisfactionInPercent <= 0)
         {
             if (currentGame.Language == "en")
-                cause = "Society's satisfaction has dropped to 0%. Your population has migrated and your country is no longer viable.";
+                cause = "Oh oh! Your population fled! You made them so unhappy with your decisions, that they prefer to live in the neighbour country, now. The missing workers bring also the industry, the agriculture and the energy sector as well as the state to an end. But at least nature is happy about it, which can regenerate completely.";
             else
-                cause = "Die Zufriedenheit der Gesellschaft ist auf 0 % gesunken. Deine Bevölkerung ist abgewandert und dein Land nicht mehr überlebensfähig.";
+                cause = "Oh oh! Deine Bevölkerung ist geflohen! Du hast sie mit den Maßnahmen so unglücklich gemacht, dass diese nun lieber im Nachbarland leben. Die fehlenden Arbeitskräfte bedeuten gleichzeitig auch das Aus für die Industrie, die Landwirtschaft und den Energiesektor sowie letztendlich auch für den Staat. Aber über das brachliegende Land freut sich zumindest die Natur, die sich nun vollständig erholen kann.";
 
             return true;
         }
@@ -707,9 +707,9 @@ public class GameState : MonoBehaviour
         if (currentGame.IndustrySatisfactionInPercent <= 0)
         {
             if (currentGame.Language == "en")
-                cause = "Industry satisfaction has dropped to 0%. All businesses have migrated and your country is no longer viable.";
+                cause = "Oh oh! Industry left the country! Your decisions made companys unprofitable. The energy sector is shrinking, too. Many people are unemployed and starting riots. The government has to go and you are also redundant.";
             else
-                cause = "Die Zufriedenheit der Industrie ist auf 0 % gesunken. Alle Unternehmen sind abgewandert und dein Land ist nicht mehr überlebensfähig.";
+                cause = "Oh oh! Die Industrie hat das Land verlassen! Deine Maßnahmen haben die Unternehmen unrentabel werden lassen. Auch der Energiesektor hat sich stark verkleinert. Viele Menschen sind nun arbeitslos und gehen auf die Barrikaden. Die Regierung kann sich nicht mehr halten und auch du bis überflüssig geworden.";
 
             return true;
         }
@@ -717,9 +717,9 @@ public class GameState : MonoBehaviour
         if (currentGame.EnergySectorSatisfactionInPercent <= 0)
         {
             if (currentGame.Language == "en")
-                cause = "Satisfaction in the energy sector has dropped to 0%. All power producers are broke and your country is no longer viable.";
+                cause = "Oh oh! The lights are going out! The energy sector went to the neighbour countries. You have to import expansive and eco-unfriendly energy, now. But at least, you can reach your CO2-goal with this doubtful instrument.";
             else
-                cause = "Die Zufriedenheit des Energiesektors ist auf 0 % gesunken. Alle Stromerzeuger sind pleite und dein Land ist nicht mehr überlebensfähig.";
+                cause = "Oh oh! In deinem Land gehen die Lichter aus! Der Energiesektor ist in die Nachbarländer abgewandert. Du musst nun teure und umweltschädliche Energien importieren. Aber zumindest kannst du mit diesem zweifelhaften Mittel dein eigenes CO2-Ziel erreichen.";
 
             return true;
         }
@@ -727,9 +727,9 @@ public class GameState : MonoBehaviour
         if (currentGame.AgricultureSatisfactionInPercent <= 0)
         {
             if (currentGame.Language == "en")
-                cause = "Agricultural satisfaction has dropped to 0%. All food producers have migrated and your land is no longer viable.";
+                cause = "Oh oh! Agriculture gave up! Your decisions made farms unprofitable. Your country has to import expansive food with enviromental unfriendly foot print. You can not reach your CO2 goal anymore.";
             else
-                cause = "Die Zufriedenheit der Landwirtschaft ist auf 0 % gesunken. Alle Nahrungserzeuger sind abgewandert und dein Land ist nicht mehr überlebensfähig.";
+                cause = "Oh oh! Die Landwirtschaft hat aufgegeben! Deine Maßnahmen haben die Bauernhöfe unrentabel werden lassen. Dein Land muss nun teure Lebensmittel mit umweltschädlichem Fußabdruck importieren. Dein CO2-Ziel kannst du nicht mehr erreichen.";
 
             return true;
         }
