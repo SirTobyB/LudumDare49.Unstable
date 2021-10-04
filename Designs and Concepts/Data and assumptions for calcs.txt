@@ -66,26 +66,26 @@ The planet can be saved, the destruction can be stopped! Will you be the right p
 Or do you won't change anything because we all know, that the climate change is not caused by humans and the earth is flat, right?
 
 Erläuterung:
-Ziel des Spiels ist es die CO2-Emission bis 2030 um mindestens 40 % zu senken ohne dabei die Zufriedenheit der vier Akteure Gesellschaft, Industrie, Landwirtschaft und Energiesektor aus den Augen zu verlieren. Jedes Jahr musst du über eine Maßnahme entscheiden, die sich sowohl positiv als auch negativ auf die Umwelt und auf die vier Akteure auswirken kann. Beachte darüber hinaus, dass jede Maßnahme deinen Haushalt belastet. Wenn deine Mittel nicht ausreichen, hast du in jeder Runde die Möglichkeit einen Kredit aufzunehmen. Aber Vorsicht, jedes Jahr werden dir für deine Schulden Zinsen berechnet. Natürlich erhältst du aber auch Steuereinnahmen, die von den Zufriedenheitswerten der vier Akteure abhängen. Geht dir das Geld aus oder sinkt die Zufriedenheit eines Akteurs auf 0 ist das Spiel sofort vorbei. Gelingt es dir nicht bis 2030 die CO2-Emission um 40 % zu senken, hast du ebenfalls verloren.
+Ziel des Spiels ist es die CO2-Emission bis 2030 um mindestens 40 % zu senken, ohne dabei die Zufriedenheit der vier Akteure Gesellschaft, Industrie, Landwirtschaft und Energiesektor aus den Augen zu verlieren. Jedes Jahr musst du über eine Maßnahme entscheiden, die sich sowohl positiv als auch negativ auf die Umwelt und auf die vier Akteure auswirken kann. Beachte darüber hinaus, dass jede Maßnahme deinen Haushalt belastet. Natürlich erhältst du aber auch Steuereinnahmen, die von den Zufriedenheitswerten der vier Akteure abhängen. Geht dir das Geld aus oder sinkt die Zufriedenheit eines Akteurs auf 0, ist das Spiel sofort vorbei. Gelingt es dir nicht bis 2030 die CO2-Emission um 40 % zu senken, hast du ebenfalls verloren.
 
-Goal of this game is to reduce CO2 emission about 40 % until 2030 without neglecting the satisfaction of the four players society, industry, agriculture and energy sector. Every year you have to make a desicion, which can have a positve or negative effect on the environment and the four players. Please consider, that every decision lower your budget. If you have not enough money, in every round you have the possiblity to take a loan. But be careful, you have to pay interest for your debts every year. Of course, you are getting income tax, which is depending on the satisfaction rates of the four players. If you are running out of money or the satisfaction of one player sinks to 0, game is over immediately. If you are not able to reduce CO2 emission until 2030 about 40 % you are losing the game, too.
+Goal of this game is to reduce CO2 emission about 40 % until 2030 without neglecting the satisfaction of the four players society, industry, agriculture and energy sector. Every year you have to make a desicion, which can have a positve or negative effect on the environment and the four players. Please consider, that every decision lower your budget. Of course, you are getting income tax, which is depending on the satisfaction rates of the four players. If you are running out of money or the satisfaction of one player sinks to 0, game is over immediately. If you are not able to reduce CO2 emission until 2030 about 40 %, you are losing the game, too.
 
 Siegertext:
 
-Hurra! Du hast es geschafft! Die Menschen liegen sich freudestrahlend in den Armen, die Bienchen summen und die Sonne spiegelt sich im glitzernd klaren Wasser. (Natürlich nur mit angenehmen klimaunschädlichen Temperaturen). Dir ist es gelungen die Stabilität der Umwelt wieder herzustellen ohne die Zufriedenheit der vier Akteure zu opfern. Glückwunsch!
+Hurra! Du hast es geschafft! Die Menschen liegen sich freudestrahlend in den Armen, die Bienchen summen und die Sonne spiegelt sich im glitzernd klaren Wasser. (Natürlich nur mit angenehmen, klimaunschädlichen Temperaturen). Dir ist es gelungen die Stabilität der Umwelt wieder herzustellen, ohne die Zufriedenheit der vier Akteure zu opfern. Glückwunsch!
 
-Hurrey! You did it! People are happily embracing themeselves, bees are buzzing, and the sun is glittering in the clear water. (Of course, with only pleasant temperature which is harmless for climate). You brought stability back to environment without sacrificing the satisfaction of the four players. Congratulations!
+Hurrey! You did it! People are happily embracing themeselves, bees are buzzing, and the sun is sparkling in the clear water. (Of course, with only pleasant temperature which is harmless for climate). You brought stability back to environment without sacrificing the satisfaction of the four players. Congratulations!
 
 Verlierertext:
 
-Oh nein! Du bist verdammt! Du konntest die Umwelt nicht stabilisieren, die nun mit all ihren Kräften zurück schlägt. Überschwemmungen, Dürren und Brände überziehen dein Land und machen es unbewohnbar. Schade, dir bleibt nur noch der Rückzug auf den Mars. 
+Oh nein! Du bist verdammt! Du konntest die Umwelt nicht stabilisieren, die nun mit all ihren Kräften zurück schlägt. Überschwemmungen, Dürren und Brände überziehen dein Land und machen es unbewohnbar. Schade, jetzt bleibt dir nur noch der Rückzug auf den Mars. 
 
-Oh no! You are doomed! You were not able to stabilize the environment, which is know striking back with all of her power. Floodings, droughts and fires destroing your country and are making it uninhabital. Unluckily, the only option for you is going to Mars.
+Oh no! You are doomed! You were not able to stabilize the environment, which is know striking back with all of her power. Floodings, droughts and fires destroying your country and are making it uninhabital. Unluckily, the only option for you is going to Mars now.
 
 Text Budget:
 Oh oh! Du bist pleite! Deine Umweltmaßnahmen waren vielleicht etwas zu ambitioniert, was zur Folge hat, dass du keinerlei Maßnahmen mehr umsetzen kannst. Dein Land wird kurzfristig im Dunst von CO2-Emissionen verschwinden.
 
-Oh oh! Your are broke! Your climate decisions were maybe a bit too ambitious, what means that you can't make any decision any more. Your country will be disappear in the dust of CO2 emission shortly.
+Oh oh! Your are broke! Your climate decisions were maybe a bit too ambitious, what means that you can't make any decision anymore. Your country will be disappear in the dust of CO2 emission shortly.
 
 Text Gesellschaft:
 Oh oh! Deine Bevölkerung ist geflohen! Du hast sie mit den Maßnahmen so unglücklich gemacht, dass diese nun lieber im Nachbarland leben. Die fehlenden Arbeitskräfte bedeuten gleichzeitig auch das Aus für die Industrie, die Landwirtschaft und den Energiesektor sowie letztendlich auch für den Staat. Aber über das brachliegende Land freut sich zumindest die Natur, die sich nun vollständig erholen kann.
@@ -98,19 +98,19 @@ Oh oh! Die Industrie hat das Land verlassen! Deine Maßnahmen haben die Unterneh
 Oh oh! Industry left the country! Your decisions made companys unprofitable. The energy sector is shrinking, too. Many people are unemployed and starting riots. The government has to go and you are also redundant.
 
 Text Landwirtschaft:
-Oh oh! Die Landwirtschaft hat aufgegeben! Deine Maßnahmen haben deine Maßnahmen unrentabel werden lassen. Dein Land muss nun teure Lebensmittel mit umweltschädlichen Fußabdruck importieren. Dein CO2-Ziel kannst du nicht mehr erreichen.
+Oh oh! Die Landwirtschaft hat aufgegeben! Deine Maßnahmen haben die Bauernhöfe unrentabel werden lassen. Dein Land muss nun teure Lebensmittel mit umweltschädlichem Fußabdruck importieren. Dein CO2-Ziel kannst du nicht mehr erreichen.
 
-Oh oh! Agriculture gave up! our decisions made farms unprofitable. Your country has to import expansive food with enviromental unfriendly foodprint. You can not reach your CO2 goal anymore.
+Oh oh! Agriculture gave up! our decisions made farms unprofitable. Your country has to import expansive food with enviromental unfriendly foot print. You can not reach your CO2 goal anymore.
 
 Text Energiesektor:
 Oh oh! In deinem Land gehen die Lichter aus! Der Energiesektor ist in die Nachbarländer abgewandert. Du musst nun teure und umweltschädliche Energien importieren. Aber zumindest kannst du mit diesem zweifelhaften Mittel dein eigenes CO2-Ziel erreichen.
 
-Oh oh! The lights are going out! The energy sector went to the neighbour countries. You have to import expansive and enviromental unfriendly energy, now. But at least, you can reach your CO2-goal with this doubtful instrument.
+Oh oh! The lights are going out! The energy sector went to the neighbour countries. You have to import expansive and eco-unfriendly energy, now. But at least, you can reach your CO2-goal with this doubtful instrument.
 
 Ludum Dare
 Titel: Unstable Environment
 Genre: Zeit-/Ressourcenmanagement / Time/Resource Management
-Beschreibung/Ziel: Ziel des Spiels ist es die CO2-Emission bis 2030 um mindestens 40 % zu senken ohne dabei die Zufriedenheit der vier Akteure Gesellschaft, Industrie, Landwirtschaft und Energiesektor aus den Augen zu verlieren. Jedes Jahr musst du über eine kostenpflichtige Maßnahme entscheiden, die sich sowohl positiv als auch negativ auf die Umwelt und auf die vier Akteure auswirken kann. Gelingt es dir nicht bis 2030 die CO2-Emission um 40 % zu senken, hast du das Spiel verloren.
-Description/Goal: Goal of this game is to reduce CO2 emission about 40 % until 2030 without neglecting the satisfaction of the four players society, industry, agriculture and energy sector. Every year you have to make a desicion, which costs money and can have a positve or negative effect on the environment and the four players. If you are not able to reduce CO2 emission until 2030 about 40 % you are losing the game.
+Beschreibung/Ziel: Ziel des Spiels ist es die CO2-Emission bis 2030 um mindestens 40 % zu senken, ohne dabei die Zufriedenheit der vier Akteure Gesellschaft, Industrie, Landwirtschaft und Energiesektor aus den Augen zu verlieren. Jedes Jahr musst du über eine kostenpflichtige Maßnahme entscheiden, die sich sowohl positiv als auch negativ auf die Umwelt und auf die vier Akteure auswirken kann. Gelingt es dir nicht bis 2030 die CO2-Emission um 40 % zu senken, hast du das Spiel verloren.
+Description/Goal: Goal of this game is to reduce CO2 emission about 40 % until 2030 without neglecting the satisfaction of the four players society, industry, agriculture and energy sector. Every year you have to make a desicion, which costs money and can have a positve or negative effect on the environment and the four players. If you are not able to reduce CO2 emission until 2030 about 40 %, you are losing the game.
 Entwickler: SirTobyB, Programmierer und Hobbyspieleentwickler, versucht sich hier zusammen mit Unterstützung von Kathi an seiner ersten Teilnahme am Ludum Dare.
 Developer: SirTobyB, programer and hobby game dev, delivers with the support of Kathi his first attempt at Ludum Dare.
