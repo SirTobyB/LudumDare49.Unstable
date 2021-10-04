@@ -10,6 +10,7 @@ public class GameState : MonoBehaviour
 {
     public Game Game;
     public Image Result;
+    public Button btnExit, btnEN, btnDE;
 
     private System.Random _rnd = new System.Random();
     private DecisionCollection _decisionCollection;
@@ -110,7 +111,7 @@ public class GameState : MonoBehaviour
 
         Game = new Game()
         {
-            Language = "en",
+            Language = "de",
             PlayerName = "Spoilerqueen",  // TODO: From player input
             CountryName = "Deutschland",  // TODO: From player input
             Currency = "€",  // TODO: From player input
@@ -170,6 +171,10 @@ public class GameState : MonoBehaviour
         _barIndustry = GameObject.FindWithTag("MainCanvas").transform.Find("barIndustry").gameObject.GetComponent<Slider>();
         _barEnergySector = GameObject.FindWithTag("MainCanvas").transform.Find("barEnergySector").gameObject.GetComponent<Slider>();
         _barAgriculture = GameObject.FindWithTag("MainCanvas").transform.Find("barAgriculture").gameObject.GetComponent<Slider>();
+
+        btnExit.onClick.AddListener(TaskOnClickExit);
+        btnEN.onClick.AddListener(TaskOnClickEN);
+        btnDE.onClick.AddListener(TaskOnClickDE);
 
         StartRound(Game, true);
     }
@@ -235,12 +240,25 @@ public class GameState : MonoBehaviour
         _txtAgricultureEmission.text = Game.AgricultureCO2Emission.ToStringCO2(false);
     }
 
+    void TaskOnClickExit()
+    {
+        Application.Quit();
+    }
+
+    void TaskOnClickDE()
+    {
+        Game.Language = "de";
+    }
+
+    void TaskOnClickEN()
+    {
+        Game.Language = "en";
+    }
+
+
     public void StartRound(Game currentGame, bool firstRound)
     {
         Result.transform.gameObject.SetActive(false);
-
-        if (!firstRound)
-            NewRound(currentGame);
 
         var decisions = GetFourDecisions(_decisionCollection.Decisions, currentGame.ListOfSeenDecisions);
 
@@ -367,10 +385,13 @@ public class GameState : MonoBehaviour
         var headline = Result.transform.GetChild(0);
         var description = Result.transform.GetChild(1);
         var effects = Result.transform.GetChild(2);
+        var pollution = Result.transform.GetChild(3);
+
+        NewRound(currentGame);
 
         if (currentGame.Language == "en")
         {
-            headline.gameObject.GetComponent<Text>().text = "Result";
+            headline.gameObject.GetComponent<Text>().text = "Result of the year";
             description.gameObject.GetComponent<Text>().text = decision.ResultDescriptionEN;
 
             var costsText = "Costs: " + decision.Costs.ToStringMoney(Game.Currency, Game.Language) + Environment.NewLine;
@@ -381,41 +402,248 @@ public class GameState : MonoBehaviour
                 costsText += Environment.NewLine + "Pollution: " + decision.Pollution.ToString();
 
             if (decision.SocietySatisfaction > 0)
-                costsText += Environment.NewLine + "Society Satisfaction: +" + decision.SocietySatisfaction.ToString() + " %";
+                costsText += Environment.NewLine + "Society satisfaction: +" + decision.SocietySatisfaction.ToString() + " %";
             else if (decision.SocietySatisfaction < 0)
-                costsText += Environment.NewLine + "Society Satisfaction: " + decision.SocietySatisfaction.ToString() + " %";
-
-            if (decision.IndustrySatisfaction > 0)
-                costsText += Environment.NewLine + "Industry Satisfaction: +" + decision.IndustrySatisfaction.ToString() + " %";
-            else if (decision.IndustrySatisfaction < 0)
-                costsText += Environment.NewLine + "Industry Satisfaction: " + decision.IndustrySatisfaction.ToString() + " %";
-
-            if (decision.EnergySectorSatisfaction > 0)
-                costsText += Environment.NewLine + "Energy Sector Satisfaction: +" + decision.EnergySectorSatisfaction.ToString() + " %";
-            else if (decision.EnergySectorSatisfaction < 0)
-                costsText += Environment.NewLine + "Energy Sector Satisfaction: " + decision.EnergySectorSatisfaction.ToString() + " %";
-
-            if (decision.AgricultureSatisfaction > 0)
-                costsText += Environment.NewLine + "Agriculture Satisfaction: +" + decision.AgricultureSatisfaction.ToString() + " %";
-            else if (decision.AgricultureSatisfaction < 0)
-                costsText += Environment.NewLine + "Agriculture Satisfaction: " + decision.AgricultureSatisfaction.ToString() + " %";
+                costsText += Environment.NewLine + "Society satisfaction: " + decision.SocietySatisfaction.ToString() + " %";
 
             if (decision.SocietyCO2Emission > 0)
-                costsText += Environment.NewLine + "Pollution: +" + decision.Pollution.ToString();
-            else if (decision.Pollution < 0)
-                costsText += Environment.NewLine + "Pollution: " + decision.Pollution.ToString();
+                costsText += Environment.NewLine + "Society emission: +" + decision.SocietyCO2Emission.ToStringCO2(true);
+            else if (decision.SocietyCO2Emission < 0)
+                costsText += Environment.NewLine + "Society emission: " + decision.SocietyCO2Emission.ToStringCO2(true);
 
-            // TODO: show all values
+            if (decision.IndustrySatisfaction > 0)
+                costsText += Environment.NewLine + "Industry satisfaction: +" + decision.IndustrySatisfaction.ToString() + " %";
+            else if (decision.IndustrySatisfaction < 0)
+                costsText += Environment.NewLine + "Industry satisfaction: " + decision.IndustrySatisfaction.ToString() + " %";
 
+            if (decision.IndustryCO2Emission > 0)
+                costsText += Environment.NewLine + "Industry emission: +" + decision.IndustryCO2Emission.ToStringCO2(true);
+            else if (decision.IndustryCO2Emission < 0)
+                costsText += Environment.NewLine + "Industry emission: " + decision.IndustryCO2Emission.ToStringCO2(true);
+
+            if (decision.EnergySectorSatisfaction > 0)
+                costsText += Environment.NewLine + "Energy sector satisfaction: +" + decision.EnergySectorSatisfaction.ToString() + " %";
+            else if (decision.EnergySectorSatisfaction < 0)
+                costsText += Environment.NewLine + "Energy sector satisfaction: " + decision.EnergySectorSatisfaction.ToString() + " %";
+
+            if (decision.EnergySectorCO2Emission > 0)
+                costsText += Environment.NewLine + "Energy sector emission: +" + decision.EnergySectorCO2Emission.ToStringCO2(true);
+            else if (decision.EnergySectorCO2Emission < 0)
+                costsText += Environment.NewLine + "Energy sector emission: " + decision.EnergySectorCO2Emission.ToStringCO2(true);
+
+            if (decision.AgricultureSatisfaction > 0)
+                costsText += Environment.NewLine + "Agriculture satisfaction: +" + decision.AgricultureSatisfaction.ToString() + " %";
+            else if (decision.AgricultureSatisfaction < 0)
+                costsText += Environment.NewLine + "Agriculture satisfaction: " + decision.AgricultureSatisfaction.ToString() + " %";
+
+            if (decision.AgricultureCO2Emission > 0)
+                costsText += Environment.NewLine + "Agriculture emission: +" + decision.AgricultureCO2Emission.ToStringCO2(true);
+            else if (decision.AgricultureCO2Emission < 0)
+                costsText += Environment.NewLine + "Agriculture emission: " + decision.AgricultureCO2Emission.ToStringCO2(true);
+
+            // show values from pollution
+            var pollutionText = "Satisfaction change from pollution";
+            var value = currentGame.EnvironmentPollutionInPercent;
+
+            if (value < 40)
+            {
+                currentGame.SocietySatisfactionInPercent += 5;
+                currentGame.AgricultureSatisfactionInPercent += 4;
+
+                pollutionText += Environment.NewLine + Environment.NewLine + "Society satisfaction: +5 %";
+                pollutionText += Environment.NewLine + "Agriculture satisfaction: +4 %";
+            }
+            else if (value >= 40 && value < 50)
+            {
+                currentGame.SocietySatisfactionInPercent += 3;
+                currentGame.AgricultureSatisfactionInPercent += 2;
+
+                pollutionText += Environment.NewLine + Environment.NewLine + "Society satisfaction: +3 %";
+                pollutionText += Environment.NewLine + "Agriculture satisfaction: +2 %";
+            }
+            else if (value >= 60 && value < 70)
+            {
+                currentGame.SocietySatisfactionInPercent += -2;
+                currentGame.IndustrySatisfactionInPercent += 1;
+                currentGame.EnergySectorSatisfactionInPercent += 1;
+                currentGame.AgricultureSatisfactionInPercent += -2;
+
+                pollutionText += Environment.NewLine + Environment.NewLine + "Society satisfaction: -2 %";
+                pollutionText += Environment.NewLine + "Industry satisfaction: +1 %";
+                pollutionText += Environment.NewLine + "Energy sector satisfaction: +1 %";
+                pollutionText += Environment.NewLine + "Agriculture satisfaction: -2 %";
+            }
+            else if (value >= 70 && value < 80)
+            {
+                currentGame.SocietySatisfactionInPercent += -4;
+                currentGame.IndustrySatisfactionInPercent += 2;
+                currentGame.EnergySectorSatisfactionInPercent += 2;
+                currentGame.AgricultureSatisfactionInPercent += -4;
+
+                pollutionText += Environment.NewLine + Environment.NewLine + "Society satisfaction: -4 %";
+                pollutionText += Environment.NewLine + "Industry satisfaction: +2 %";
+                pollutionText += Environment.NewLine + "Energy sector satisfaction: +2 %";
+                pollutionText += Environment.NewLine + "Agriculture satisfaction: -4 %";
+            }
+            else if (value >= 80 && value < 90)
+            {
+                currentGame.SocietySatisfactionInPercent += -8;
+                currentGame.IndustrySatisfactionInPercent += 5;
+                currentGame.EnergySectorSatisfactionInPercent += 3;
+                currentGame.AgricultureSatisfactionInPercent += -8;
+
+                pollutionText += Environment.NewLine + Environment.NewLine + "Society satisfaction: -8 %";
+                pollutionText += Environment.NewLine + "Industry satisfaction: +5 %";
+                pollutionText += Environment.NewLine + "Energy sector satisfaction: +3 %";
+                pollutionText += Environment.NewLine + "Agriculture satisfaction: -8 %";
+            }
+            else if (value >= 90)
+            {
+                currentGame.SocietySatisfactionInPercent += -15;
+                currentGame.IndustrySatisfactionInPercent += 10;
+                currentGame.EnergySectorSatisfactionInPercent += 5;
+                currentGame.AgricultureSatisfactionInPercent += -15;
+
+                pollutionText += Environment.NewLine + Environment.NewLine + "Society satisfaction: -15 %";
+                pollutionText += Environment.NewLine + "Industry satisfaction: +10 %";
+                pollutionText += Environment.NewLine + "Energy sector satisfaction: +5 %";
+                pollutionText += Environment.NewLine + "Agriculture satisfaction: -15 %";
+            }
+            else
+            {
+                pollutionText += Environment.NewLine + Environment.NewLine + "Nothing has changed";
+            }
+
+            pollution.gameObject.GetComponent<Text>().text = pollutionText;
             effects.gameObject.GetComponent<Text>().text = costsText;
         }
         else
         {
-            headline.gameObject.GetComponent<Text>().text = "Ergebnis";
+            headline.gameObject.GetComponent<Text>().text = "Ergebnis des Jahres";
             description.gameObject.GetComponent<Text>().text = decision.ResultDescriptionDE;
 
-            // TODO: show all values
+            var costsText = "Kosten: " + decision.Costs.ToStringMoney(Game.Currency, Game.Language) + Environment.NewLine;
 
+            if (decision.Pollution > 0)
+                costsText += Environment.NewLine + "Umweltverschmutzung: +" + decision.Pollution.ToString();
+            else if (decision.Pollution < 0)
+                costsText += Environment.NewLine + "Umweltverschmutzung: " + decision.Pollution.ToString();
+
+            if (decision.SocietySatisfaction > 0)
+                costsText += Environment.NewLine + "Gesellschaft Zufriedenheit: +" + decision.SocietySatisfaction.ToString() + " %";
+            else if (decision.SocietySatisfaction < 0)
+                costsText += Environment.NewLine + "Gesellschaft Zufriedenheit: " + decision.SocietySatisfaction.ToString() + " %";
+
+            if (decision.SocietyCO2Emission > 0)
+                costsText += Environment.NewLine + "Gesellschaft Emission: +" + decision.SocietyCO2Emission.ToStringCO2(true);
+            else if (decision.SocietyCO2Emission < 0)
+                costsText += Environment.NewLine + "Gesellschaft Emission: " + decision.SocietyCO2Emission.ToStringCO2(true);
+
+            if (decision.IndustrySatisfaction > 0)
+                costsText += Environment.NewLine + "Industrie Zufriedenheit: +" + decision.IndustrySatisfaction.ToString() + " %";
+            else if (decision.IndustrySatisfaction < 0)
+                costsText += Environment.NewLine + "Industrie Zufriedenheit: " + decision.IndustrySatisfaction.ToString() + " %";
+
+            if (decision.IndustryCO2Emission > 0)
+                costsText += Environment.NewLine + "Industrie Emission: +" + decision.IndustryCO2Emission.ToStringCO2(true);
+            else if (decision.IndustryCO2Emission < 0)
+                costsText += Environment.NewLine + "Industrie Emission: " + decision.IndustryCO2Emission.ToStringCO2(true);
+
+            if (decision.EnergySectorSatisfaction > 0)
+                costsText += Environment.NewLine + "Energiesektor Zufriedenheit: +" + decision.EnergySectorSatisfaction.ToString() + " %";
+            else if (decision.EnergySectorSatisfaction < 0)
+                costsText += Environment.NewLine + "Energiesektor Zufriedenheit: " + decision.EnergySectorSatisfaction.ToString() + " %";
+
+            if (decision.EnergySectorCO2Emission > 0)
+                costsText += Environment.NewLine + "Energiesektor Emission: +" + decision.EnergySectorCO2Emission.ToStringCO2(true);
+            else if (decision.EnergySectorCO2Emission < 0)
+                costsText += Environment.NewLine + "Energiesektor Emission: " + decision.EnergySectorCO2Emission.ToStringCO2(true);
+
+            if (decision.AgricultureSatisfaction > 0)
+                costsText += Environment.NewLine + "Landwirtschaft Zufriedenheit: +" + decision.AgricultureSatisfaction.ToString() + " %";
+            else if (decision.AgricultureSatisfaction < 0)
+                costsText += Environment.NewLine + "Landwirtschaft Zufriedenheit: " + decision.AgricultureSatisfaction.ToString() + " %";
+
+            if (decision.AgricultureCO2Emission > 0)
+                costsText += Environment.NewLine + "Landwirtschaft Emission: +" + decision.AgricultureCO2Emission.ToStringCO2(true);
+            else if (decision.AgricultureCO2Emission < 0)
+                costsText += Environment.NewLine + "Landwirtschaft Emission: " + decision.AgricultureCO2Emission.ToStringCO2(true);
+
+            // show values from pollution
+            var pollutionText = "Zufriedenheitsänderung durch Verschmutzung";
+            var value = currentGame.EnvironmentPollutionInPercent;
+
+            if (value < 40)
+            {
+                currentGame.SocietySatisfactionInPercent += 5;
+                currentGame.AgricultureSatisfactionInPercent += 4;
+
+                pollutionText += Environment.NewLine + Environment.NewLine + "Gesellschaft Zufriedenheit: +5 %";
+                pollutionText += Environment.NewLine + "Landwirtschaft Zufriedenheit: +4 %";
+            }
+            else if (value >= 40 && value < 50)
+            {
+                currentGame.SocietySatisfactionInPercent += 3;
+                currentGame.AgricultureSatisfactionInPercent += 2;
+
+                pollutionText += Environment.NewLine + Environment.NewLine + "Gesellschaft Zufriedenheit: +3 %";
+                pollutionText += Environment.NewLine + "Landwirtschaft Zufriedenheit: +2 %";
+            }
+            else if (value >= 60 && value < 70)
+            {
+                currentGame.SocietySatisfactionInPercent += -2;
+                currentGame.IndustrySatisfactionInPercent += 1;
+                currentGame.EnergySectorSatisfactionInPercent += 1;
+                currentGame.AgricultureSatisfactionInPercent += -2;
+
+                pollutionText += Environment.NewLine + Environment.NewLine + "Gesellschaft Zufriedenheit: -2 %";
+                pollutionText += Environment.NewLine + "Industrie Zufriedenheit: +1 %";
+                pollutionText += Environment.NewLine + "Energiesektor Zufriedenheit: +1 %";
+                pollutionText += Environment.NewLine + "Landwirtschaft Zufriedenheit: -2 %";
+            }
+            else if (value >= 70 && value < 80)
+            {
+                currentGame.SocietySatisfactionInPercent += -4;
+                currentGame.IndustrySatisfactionInPercent += 2;
+                currentGame.EnergySectorSatisfactionInPercent += 2;
+                currentGame.AgricultureSatisfactionInPercent += -4;
+
+                pollutionText += Environment.NewLine + Environment.NewLine + "Gesellschaft Zufriedenheit: -4 %";
+                pollutionText += Environment.NewLine + "Industrie Zufriedenheit: +2 %";
+                pollutionText += Environment.NewLine + "Energiesektor Zufriedenheit: +2 %";
+                pollutionText += Environment.NewLine + "Landwirtschaft Zufriedenheit: -4 %";
+            }
+            else if (value >= 80 && value < 90)
+            {
+                currentGame.SocietySatisfactionInPercent += -8;
+                currentGame.IndustrySatisfactionInPercent += 5;
+                currentGame.EnergySectorSatisfactionInPercent += 3;
+                currentGame.AgricultureSatisfactionInPercent += -8;
+
+                pollutionText += Environment.NewLine + Environment.NewLine + "Gesellschaft Zufriedenheit: -8 %";
+                pollutionText += Environment.NewLine + "Industrie Zufriedenheit: +5 %";
+                pollutionText += Environment.NewLine + "Energiesektor Zufriedenheit: +3 %";
+                pollutionText += Environment.NewLine + "Landwirtschaft Zufriedenheit: -8 %";
+            }
+            else if (value >= 90)
+            {
+                currentGame.SocietySatisfactionInPercent += -15;
+                currentGame.IndustrySatisfactionInPercent += 10;
+                currentGame.EnergySectorSatisfactionInPercent += 5;
+                currentGame.AgricultureSatisfactionInPercent += -15;
+
+                pollutionText += Environment.NewLine + Environment.NewLine + "Gesellschaft Zufriedenheit: -15 %";
+                pollutionText += Environment.NewLine + "Industrie Zufriedenheit: +10 %";
+                pollutionText += Environment.NewLine + "Energiesektor Zufriedenheit: +5 %";
+                pollutionText += Environment.NewLine + "Landwirtschaft Zufriedenheit: -15 %";
+            }
+            else
+            {
+                pollutionText += Environment.NewLine + Environment.NewLine + "Nichts hat sich geändert";
+            }
+
+            pollution.gameObject.GetComponent<Text>().text = pollutionText;
+            effects.gameObject.GetComponent<Text>().text = costsText;
         }
 
         Result.transform.gameObject.SetActive(true);
@@ -428,49 +656,7 @@ public class GameState : MonoBehaviour
         currentGame.Money += UpdateAndGetTaxIncome(currentGame);
         currentGame.Money -= currentGame.InterestPerRound;
 
-        UpdateSatisfactionBasedOnPollution(currentGame);
-
         currentGame.PreviousCO2EmissionOverall += GetTotalCO2Emission(currentGame);
-    }
-
-    private void UpdateSatisfactionBasedOnPollution(Game currentGame)
-    {
-        var value = currentGame.EnvironmentPollutionInPercent;
-
-        // TODO: values for lesser pollution
-        if (value < 50)
-        {
-            currentGame.SocietySatisfactionInPercent += 3;
-            currentGame.AgricultureSatisfactionInPercent += 2;
-        }
-        else if (value >= 60 && value < 70)
-        {
-            currentGame.SocietySatisfactionInPercent += -2;
-            currentGame.IndustrySatisfactionInPercent += 1;
-            currentGame.EnergySectorSatisfactionInPercent += 1;
-            currentGame.AgricultureSatisfactionInPercent += -2;
-        }
-        else if (value >= 70 && value < 80)
-        {
-            currentGame.SocietySatisfactionInPercent += -4;
-            currentGame.IndustrySatisfactionInPercent += 2;
-            currentGame.EnergySectorSatisfactionInPercent += 2;
-            currentGame.AgricultureSatisfactionInPercent += -4;
-        }
-        else if (value >= 80 && value < 90)
-        {
-            currentGame.SocietySatisfactionInPercent += -8;
-            currentGame.IndustrySatisfactionInPercent += 5;
-            currentGame.EnergySectorSatisfactionInPercent += 3;
-            currentGame.AgricultureSatisfactionInPercent += -8;
-        }
-        else if (value >= 90)
-        {
-            currentGame.SocietySatisfactionInPercent += -15;
-            currentGame.IndustrySatisfactionInPercent += 10;
-            currentGame.EnergySectorSatisfactionInPercent += 5;
-            currentGame.AgricultureSatisfactionInPercent += -15;
-        }
     }
 
     public bool IsGameWon(Game currentGame)

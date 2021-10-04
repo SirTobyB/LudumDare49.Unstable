@@ -31,6 +31,7 @@ public class PanelResult : MonoBehaviour, IPointerClickHandler
             var headline = gameObject.transform.GetChild(0);
             var description = gameObject.transform.GetChild(1);
             var effects = gameObject.transform.GetChild(2);
+            var pollution = gameObject.transform.GetChild(3);
 
             // TODO: Show Screen: You've won! With calculated points
             // TODO: Show credits
@@ -39,14 +40,15 @@ public class PanelResult : MonoBehaviour, IPointerClickHandler
             {
                 headline.gameObject.GetComponent<Text>().text = "Game won!";
                 description.gameObject.GetComponent<Text>().text = "You've archived the climate goal!";
-                effects.gameObject.GetComponent<Text>().text = "";
             }
             else
             {
                 headline.gameObject.GetComponent<Text>().text = "Spiel gewonnen!";
                 description.gameObject.GetComponent<Text>().text = "Du hast das Klimaziel erreicht!";
-                effects.gameObject.GetComponent<Text>().text = "";
             }
+
+            effects.gameObject.GetComponent<Text>().text = "";
+            pollution.gameObject.GetComponent<Text>().text = "";
 
             gameObject.SetActive(true);
             return;
@@ -62,6 +64,7 @@ public class PanelResult : MonoBehaviour, IPointerClickHandler
             var headline = gameObject.transform.GetChild(0);
             var description = gameObject.transform.GetChild(1);
             var effects = gameObject.transform.GetChild(2);
+            var pollution = gameObject.transform.GetChild(3);
 
             // TODO: Show Screen: Game Over with stats and "try again" button
 
@@ -69,14 +72,15 @@ public class PanelResult : MonoBehaviour, IPointerClickHandler
             {
                 headline.gameObject.GetComponent<Text>().text = "Game over!";
                 description.gameObject.GetComponent<Text>().text = cause;
-                effects.gameObject.GetComponent<Text>().text = "";
             }
             else
             {
                 headline.gameObject.GetComponent<Text>().text = "Spiel verloren!";
                 description.gameObject.GetComponent<Text>().text = cause;
-                effects.gameObject.GetComponent<Text>().text = "";
             }
+
+            effects.gameObject.GetComponent<Text>().text = "";
+            pollution.gameObject.GetComponent<Text>().text = "";
 
             gameObject.SetActive(true);
             return;
