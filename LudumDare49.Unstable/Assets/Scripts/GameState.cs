@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class GameState : MonoBehaviour
 {
     public Game Game;
+    public Image StartPanel;
     public Image Result;
     public Button btnExit, btnEN, btnDE;
 
@@ -18,10 +19,6 @@ public class GameState : MonoBehaviour
     private Text _txtPlayerName;
     private Text _txtMoneyLabel;
     private Text _txtMoney;
-    private Text _txtDeptLabel;
-    private Text _txtDept;
-    private Text _txtInterestLabel;
-    private Text _txtInterest;
     private Text _txtTaxLabel;
     private Text _txtTax;
     private Text _txtGoalLabel;
@@ -119,9 +116,7 @@ public class GameState : MonoBehaviour
             ListOfMadeDecisions = new List<int>(),
             ListOfSeenDecisions = new List<int>(),
             CurrentYear = 2021,
-            Money = 10000000,
-            Debt = 100000000,
-            InterestPerRound = 1000000,
+            Money = 5000000,
             EnvironmentPollutionInPercent = 50,
             StartCO2EmissionOverall = StartSocietyCO2Emission + StartIndustryCO2Emission + StartEnergySectorCO2Emission + StartAgricultureCO2Emission,
             SocietySatisfactionInPercent = 50,
@@ -143,10 +138,6 @@ public class GameState : MonoBehaviour
         _txtPlayerName = GameObject.FindWithTag("MainCanvas").transform.Find("txtPlayerName").gameObject.GetComponent<Text>();
         _txtMoneyLabel = GameObject.FindWithTag("MainCanvas").transform.Find("txtMoneyLabel").gameObject.GetComponent<Text>();
         _txtMoney = GameObject.FindWithTag("MainCanvas").transform.Find("txtMoney").gameObject.GetComponent<Text>();
-        _txtDeptLabel = GameObject.FindWithTag("MainCanvas").transform.Find("txtDeptLabel").gameObject.GetComponent<Text>();
-        _txtDept = GameObject.FindWithTag("MainCanvas").transform.Find("txtDept").gameObject.GetComponent<Text>();
-        _txtInterestLabel = GameObject.FindWithTag("MainCanvas").transform.Find("txtInterestLabel").gameObject.GetComponent<Text>();
-        _txtInterest = GameObject.FindWithTag("MainCanvas").transform.Find("txtInterest").gameObject.GetComponent<Text>();
         _txtTaxLabel = GameObject.FindWithTag("MainCanvas").transform.Find("txtTaxLabel").gameObject.GetComponent<Text>();
         _txtTax = GameObject.FindWithTag("MainCanvas").transform.Find("txtTax").gameObject.GetComponent<Text>();
         _txtGoalLabel = GameObject.FindWithTag("MainCanvas").transform.Find("txtGoalLabel").gameObject.GetComponent<Text>();
@@ -176,7 +167,7 @@ public class GameState : MonoBehaviour
         btnEN.onClick.AddListener(TaskOnClickEN);
         btnDE.onClick.AddListener(TaskOnClickDE);
 
-        StartRound(Game, true);
+        StartPanel.transform.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -188,8 +179,6 @@ public class GameState : MonoBehaviour
             _txtYearCountry.text = $"Year {Game.CurrentYear} in {Game.CountryName}";
             _txtPlayerName.text = $"Consultant {Game.PlayerName}";
             _txtMoneyLabel.text = $"Money:";
-            _txtDeptLabel.text = $"Dept:";
-            _txtInterestLabel.text = $"Interest p.a.:";
             _txtTaxLabel.text = $"Tax income p.a.:";
             _txtSatisfactionLabel.text = "Satisfaction";
             _txtSocietyLabel.text = "Society:";
@@ -207,8 +196,6 @@ public class GameState : MonoBehaviour
             _txtYearCountry.text = $"Jahr {Game.CurrentYear} in {Game.CountryName}";
             _txtPlayerName.text = $"Berater {Game.PlayerName}";
             _txtMoneyLabel.text = $"Geld:";
-            _txtDeptLabel.text = $"Schulden:";
-            _txtInterestLabel.text = $"Zinsen p.a.:";
             _txtTaxLabel.text = $"Steuereinnahmen p.a.:";
             _txtSatisfactionLabel.text = "Zufriedenheit";
             _txtSocietyLabel.text = "Gesellschaft:";
@@ -223,8 +210,6 @@ public class GameState : MonoBehaviour
         }
 
         _txtMoney.text = Game.Money.ToStringMoney(Game.Currency, Game.Language);
-        _txtDept.text = Game.Debt.ToStringMoney(Game.Currency, Game.Language);
-        _txtInterest.text = Game.InterestPerRound.ToStringMoney(Game.Currency, Game.Language);
         _txtTax.text = Game.TaxIncomePerRound.ToStringMoney(Game.Currency, Game.Language);
         _txtSocietySatisfaction.text = Game.SocietySatisfactionInPercent.ToString() + " %";
         _barSociety.value = Convert.ToSingle(Game.SocietySatisfactionInPercent);
@@ -254,7 +239,6 @@ public class GameState : MonoBehaviour
     {
         Game.Language = "en";
     }
-
 
     public void StartRound(Game currentGame, bool firstRound)
     {
@@ -652,10 +636,7 @@ public class GameState : MonoBehaviour
     private void NewRound(Game currentGame)
     {
         currentGame.CurrentYear++;
-
         currentGame.Money += UpdateAndGetTaxIncome(currentGame);
-        currentGame.Money -= currentGame.InterestPerRound;
-
         currentGame.PreviousCO2EmissionOverall += GetTotalCO2Emission(currentGame);
     }
 
@@ -671,9 +652,9 @@ public class GameState : MonoBehaviour
         if (currentGame.CurrentYear == 2030 && GetTotalCO2Emission(currentGame) > _emissionGoal)
         {
             if (currentGame.Language == "en")
-                cause = "The climate target was not achieved, global warming has not been adequately limited, chaos is breaking out.";
+                cause = "Oh no! You are doomed! You were not able to stabilize the environment, which is know striking back with all of her power. Floodings, droughts and fires destroying your country and are making it uninhabital. Unluckily, the only option for you is going to Mars now.";
             else
-                cause = "Das Klimaziel wurde nicht erreicht, die Erderwärmung wurde nicht ausreichend begrenzt, Chaos bricht aus.";
+                cause = "Oh nein! Du bist verdammt! Du konntest die Umwelt nicht stabilisieren, die nun mit all ihren Kräften zurück schlägt. Überschwemmungen, Dürren und Brände überziehen dein Land und machen es unbewohnbar. Schade, jetzt bleibt dir nur noch der Rückzug auf den Mars. ";
 
             return true;
         }
@@ -681,7 +662,6 @@ public class GameState : MonoBehaviour
         // game over, if money is less or equal null after paying the interest and getting the tax
         var newMoney = currentGame.Money;
         newMoney += UpdateAndGetTaxIncome(currentGame);
-        newMoney -= currentGame.InterestPerRound;
 
         if (newMoney <= 0)
         {

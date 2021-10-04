@@ -17,8 +17,6 @@ namespace Assets.Scripts
 
         public short CurrentYear;
         public long Money;
-        public long Debt;
-        public long InterestPerRound;
         public long TaxIncomePerRound;
         public short EnvironmentPollutionInPercent;
         public long StartCO2EmissionOverall;  // the sum of all segments at the beginning of the game
